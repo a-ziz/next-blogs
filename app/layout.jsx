@@ -1,4 +1,6 @@
 import "@styles/globals.css";
+import Navbar from "@components/Navbar";
+import Provider from "@components/Provider";
 
 export const metadata = {
   title: "Blogs with NextJS",
@@ -10,9 +12,12 @@ const RootLayout = ({ children }) => {
     <html lang="en">
       <body>
         <div className="main">
-          <div className="gradient" />
+          <div className="main__background" />
         </div>
-        <main className="app">{children}</main>
+        <main className="app">
+          <Provider />
+          {children}
+        </main>
       </body>
     </html>
   );
