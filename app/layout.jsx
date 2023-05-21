@@ -3,21 +3,23 @@ import Navbar from "@components/Navbar";
 import Provider from "@components/Provider";
 
 export const metadata = {
-  title: "Blogs with NextJS",
-  description: "Post blogs and find useful tips and tricks",
+  title: "Quotable",
+  description: "Post quotes and find other inspiring quotes",
 };
 
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <div className="main">
-          <div className="main__background" />
-        </div>
-        <main className="app">
-          <Provider />
-          {children}
-        </main>
+        <Provider>
+          <div className="main">
+            <div className="main__background" />
+          </div>
+          <main className="app">
+            <Navbar />
+            {children}
+          </main>
+        </Provider>
       </body>
     </html>
   );
