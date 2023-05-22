@@ -15,12 +15,11 @@ const Navbar = () => {
       <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/assets/images/site_logo.png"
-          alt="blog logo"
-          width={30}
-          height={30}
+          alt="quotable logo"
+          width={50}
+          height={50}
           className="object-contain"
         />
-        <p className="logo_text">Blogs</p>
       </Link>
 
       {/* Desktop Navabr  */}
