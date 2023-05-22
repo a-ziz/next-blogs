@@ -6,9 +6,19 @@ import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Navbar = () => {
-  const isUserLoggedIn = true;
+  const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
+
+  useEffect(() => {
+    const setUpProviders = async () => {
+      const res = await getProviders();
+
+      setProviders(res);
+    };
+
+    setUpProviders();
+  }, []);
 
   return (
     <nav className="flex-between w-full mb-16 pt-3">
@@ -24,7 +34,7 @@ const Navbar = () => {
 
       {/* Desktop Navabr  */}
       <div className="sm:flex hidden">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link href="/create-blog" className="black_btn">
               Create Post
@@ -61,7 +71,7 @@ const Navbar = () => {
 
       {/* Mobile Navbar  */}
       <div className="sm:hidden flex relative">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex">
             <Image
               src="/assets/images/site_logo.png"
