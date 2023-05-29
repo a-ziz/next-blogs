@@ -31,7 +31,8 @@ const Navbar = () => {
           className="object-contain"
         />
       </Link>
-
+      {console.log(session?.user)}
+      {/* {alert(providers)} */}
       {/* Desktop Navabr  */}
       <div className="sm:flex hidden">
         {session?.user ? (
@@ -68,7 +69,6 @@ const Navbar = () => {
           </>
         )}
       </div>
-
       {/* Mobile Navbar  */}
       <div className="sm:hidden flex relative">
         {session?.user ? (
@@ -113,16 +113,18 @@ const Navbar = () => {
         ) : (
           <>
             {providers &&
-              Object.values(providers).map((provider) => {
+              Object.values(providers).map((provider) => (
                 <button
                   type="button"
                   key={provider.name}
-                  onClick={() => signIn(provider.id)}
+                  onClick={() => {
+                    signIn(provider.id);
+                  }}
                   className="black_btn"
                 >
                   Sign In
-                </button>;
-              })}
+                </button>
+              ))}
           </>
         )}
       </div>
