@@ -31,7 +31,7 @@ const Navbar = () => {
           className="object-contain"
         />
       </Link>
-      {console.log(session?.user)}
+      {/* {console.log(session?.user)} */}
       {/* {alert(providers)} */}
       {/* Desktop Navabr  */}
       <div className="sm:flex hidden">
