@@ -6,14 +6,16 @@ import { useRouter } from "next/navigation";
 
 import Form from "@components/Form";
 
-const CreateQuote = () => {
+const createPost = () => {
+  const router = useRouter();
+  const { data: session } = useSession();
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     quote: "",
     tag: "",
   });
 
-  const createQuote = async (e) => {
+  const createPost = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
@@ -43,8 +45,9 @@ const CreateQuote = () => {
       setPost={setPost}
       submitting={submitting}
       setSubmitting={setSubmitting}
+      handleSubmit={createPost}
     />
   );
 };
 
-export default CreateQuote;
+export default createPost;
