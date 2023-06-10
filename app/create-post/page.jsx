@@ -20,10 +20,10 @@ const createPost = () => {
     setSubmitting(true);
 
     try {
-      const res = await fetch("/api/prompt/new", {
+      const res = await fetch("/api/quote/new", {
         method: "POST",
         body: JSON.stringify({
-          prompt: post.prompt,
+          quote: post.quote,
           userId: session?.user.id,
           tag: post.tag,
         }),
@@ -44,7 +44,6 @@ const createPost = () => {
       post={post}
       setPost={setPost}
       submitting={submitting}
-      setSubmitting={setSubmitting}
       handleSubmit={createPost}
     />
   );
